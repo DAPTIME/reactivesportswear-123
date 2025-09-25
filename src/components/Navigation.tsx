@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, ShoppingBag, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -37,9 +38,11 @@ const Navigation = () => {
             <Button variant="ghost" size="sm" className="p-2">
               <ShoppingBag className="h-5 w-5" />
             </Button>
-            <Button className="btn-athletic hidden sm:inline-flex">
-              Shop Now
-            </Button>
+            <Link to="/shop">
+              <Button className="btn-athletic hidden sm:inline-flex">
+                Shop Now
+              </Button>
+            </Link>
             <Button variant="ghost" size="sm" className="p-2 md:hidden">
               <Menu className="h-5 w-5" />
             </Button>

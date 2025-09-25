@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import productsImage from "@/assets/products-collection.jpg";
 
 const ProductShowcase = () => {
@@ -70,9 +71,11 @@ const ProductShowcase = () => {
       </div>
 
       <div className="text-center">
-        <Button size="lg" className="btn-athletic px-8 py-6 text-lg font-semibold">
-          Explore All Products
-        </Button>
+        <Link to="/shop">
+          <Button size="lg" className="btn-athletic px-8 py-6 text-lg font-semibold">
+            Explore All Products
+          </Button>
+        </Link>
       </div>
     </section>
   );
