@@ -4,8 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ShoppingBag, Star } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 const Shop = () => {
+  const { addItem } = useCart();
+  const { toast } = useToast();
   const products = [
     {
       id: 1,
@@ -185,6 +189,19 @@ const Shop = () => {
     }
   ];
 
+  const handleAddToCart = (product: typeof products[0]) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image
+    });
+    toast({
+      title: "Added to cart!",
+      description: `${product.name} has been added to your cart.`,
+    });
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -253,7 +270,10 @@ const Shop = () => {
                   )}
                 </div>
                 
-                <Button className="w-full btn-athletic group-hover:shadow-lg transition-all duration-300">
+                <Button 
+                  className="w-full btn-athletic group-hover:shadow-lg transition-all duration-300"
+                  onClick={() => handleAddToCart(product)}
+                >
                   <ShoppingBag className="h-4 w-4 mr-2" />
                   Add to Cart
                 </Button>

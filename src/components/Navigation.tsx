@@ -1,17 +1,21 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Menu, ShoppingBag, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 
 const Navigation = () => {
+  const { state } = useCart();
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="font-display font-bold text-2xl bg-gradient-primary bg-clip-text text-transparent">
+            <Link to="/" className="font-display font-bold text-2xl bg-gradient-primary bg-clip-text text-transparent">
               Reactive
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -35,9 +39,16 @@ const Navigation = () => {
             <Button variant="ghost" size="sm" className="p-2">
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-2">
-              <ShoppingBag className="h-5 w-5" />
-            </Button>
+            <Link to="/cart" className="relative">
+              <Button variant="ghost" size="sm" className="p-2 relative">
+                <ShoppingBag className="h-5 w-5" />
+                {state.items.length > 0 && (
+                  <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-primary text-primary-foreground text-xs">
+                    {state.items.reduce((sum, item) => sum + item.quantity, 0)}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
             <Link to="/shop">
               <Button className="btn-athletic hidden sm:inline-flex">
                 Shop Now
