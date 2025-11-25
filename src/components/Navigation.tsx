@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Menu, ShoppingBag, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
+import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const { state } = useCart();
@@ -13,8 +14,8 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="font-display font-bold text-2xl bg-gradient-primary bg-clip-text text-transparent">
-              Reactive
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="Reactive Sportswear" className="h-10 w-auto" />
             </Link>
           </div>
 
