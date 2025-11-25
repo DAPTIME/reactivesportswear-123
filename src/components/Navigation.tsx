@@ -21,18 +21,18 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/shop" className="text-foreground hover:text-primary transition-colors font-medium">
               Products
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+            </Link>
+            <Link to="/about" className="text-foreground hover:text-primary transition-colors font-medium">
               About
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+            </Link>
+            <Link to="/technology" className="text-foreground hover:text-primary transition-colors font-medium">
               Technology
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+            </Link>
+            <Link to="/sustainability" className="text-foreground hover:text-primary transition-colors font-medium">
               Sustainability
-            </a>
+            </Link>
           </div>
 
           {/* Actions */}
