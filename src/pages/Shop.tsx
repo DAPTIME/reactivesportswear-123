@@ -6,6 +6,22 @@ import Footer from "@/components/Footer";
 import { ShoppingBag, Star } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import tankTop from "@/assets/products/tank-top.jpg";
+import runningShorts from "@/assets/products/running-shorts.jpg";
+import leggings from "@/assets/products/leggings.jpg";
+import sportsBra from "@/assets/products/sports-bra.jpg";
+import trainingGloves from "@/assets/products/training-gloves.jpg";
+import runningJacket from "@/assets/products/running-jacket.jpg";
+import hoodie from "@/assets/products/hoodie.jpg";
+import performanceTee from "@/assets/products/performance-tee.jpg";
+import yogaPants from "@/assets/products/yoga-pants.jpg";
+import hydrationBelt from "@/assets/products/hydration-belt.jpg";
+import compressionSleeves from "@/assets/products/compression-sleeves.jpg";
+import windbreaker from "@/assets/products/windbreaker.jpg";
+import socksPack from "@/assets/products/socks-pack.jpg";
+import trainingShorts from "@/assets/products/training-shorts.jpg";
+import poloShirt from "@/assets/products/polo-shirt.jpg";
+import runningShoes from "@/assets/products/running-shoes.jpg";
 
 const Shop = () => {
   const { addItem } = useCart();
@@ -16,7 +32,7 @@ const Shop = () => {
       name: "Ultra Performance Tank",
       price: 49.99,
       originalPrice: 69.99,
-      image: "https://images.unsplash.com/photo-1594882645126-14020914d58d?w=400&h=400&fit=crop&auto=format",
+      image: tankTop,
       rating: 4.8,
       category: "Tops",
       isNew: false,
@@ -27,7 +43,7 @@ const Shop = () => {
       name: "Reactive Running Shorts",
       price: 39.99,
       originalPrice: null,
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&auto=format",
+      image: runningShorts,
       rating: 4.9,
       category: "Bottoms",
       isNew: true,
@@ -38,7 +54,7 @@ const Shop = () => {
       name: "Flex Motion Leggings",
       price: 79.99,
       originalPrice: 99.99,
-      image: "https://images.unsplash.com/photo-1506629905117-b3667207e5b7?w=400&h=400&fit=crop&auto=format",
+      image: leggings,
       rating: 4.7,
       category: "Bottoms",
       isNew: false,
@@ -49,7 +65,7 @@ const Shop = () => {
       name: "Breathe Easy Sports Bra",
       price: 34.99,
       originalPrice: null,
-      image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop&auto=format",
+      image: sportsBra,
       rating: 4.6,
       category: "Tops",
       isNew: false,
@@ -60,7 +76,7 @@ const Shop = () => {
       name: "Power Grip Training Gloves",
       price: 24.99,
       originalPrice: 34.99,
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format",
+      image: trainingGloves,
       rating: 4.5,
       category: "Accessories",
       isNew: false,
@@ -71,7 +87,7 @@ const Shop = () => {
       name: "Velocity Running Jacket",
       price: 89.99,
       originalPrice: null,
-      image: "https://images.unsplash.com/photo-1544966503-7cc82b6c3c38?w=400&h=400&fit=crop&auto=format",
+      image: runningJacket,
       rating: 4.8,
       category: "Outerwear",
       isNew: true,
@@ -82,7 +98,7 @@ const Shop = () => {
       name: "Comfort Zone Hoodie",
       price: 64.99,
       originalPrice: 79.99,
-      image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&auto=format",
+      image: hoodie,
       rating: 4.9,
       category: "Outerwear",
       isNew: false,
@@ -93,7 +109,7 @@ const Shop = () => {
       name: "Quick-Dry Performance Tee",
       price: 29.99,
       originalPrice: null,
-      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&auto=format",
+      image: performanceTee,
       rating: 4.7,
       category: "Tops",
       isNew: false,
@@ -104,7 +120,7 @@ const Shop = () => {
       name: "Stretch Pro Yoga Pants",
       price: 69.99,
       originalPrice: 89.99,
-      image: "https://images.unsplash.com/photo-1594736797933-d0c1e7b7925c?w=400&h=400&fit=crop&auto=format",
+      image: yogaPants,
       rating: 4.8,
       category: "Bottoms",
       isNew: false,
@@ -115,7 +131,7 @@ const Shop = () => {
       name: "Hydration Belt",
       price: 19.99,
       originalPrice: null,
-      image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop&auto=format",
+      image: hydrationBelt,
       rating: 4.4,
       category: "Accessories",
       isNew: true,
@@ -126,7 +142,7 @@ const Shop = () => {
       name: "Compression Recovery Sleeves",
       price: 44.99,
       originalPrice: 54.99,
-      image: "https://images.unsplash.com/photo-1515506285799-80e0c7749ad6?w=400&h=400&fit=crop&auto=format",
+      image: compressionSleeves,
       rating: 4.6,
       category: "Accessories",
       isNew: false,
@@ -137,7 +153,7 @@ const Shop = () => {
       name: "All-Weather Wind Breaker",
       price: 74.99,
       originalPrice: null,
-      image: "https://images.unsplash.com/photo-1544966503-7cc82b6c3c38?w=400&h=400&fit=crop&auto=format",
+      image: windbreaker,
       rating: 4.7,
       category: "Outerwear",
       isNew: true,
@@ -148,7 +164,7 @@ const Shop = () => {
       name: "Moisture-Wicking Socks (3-Pack)",
       price: 22.99,
       originalPrice: 29.99,
-      image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=400&fit=crop&auto=format",
+      image: socksPack,
       rating: 4.5,
       category: "Accessories",
       isNew: false,
@@ -159,7 +175,7 @@ const Shop = () => {
       name: "Cross-Training Shorts",
       price: 42.99,
       originalPrice: null,
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&auto=format",
+      image: trainingShorts,
       rating: 4.8,
       category: "Bottoms",
       isNew: false,
@@ -170,7 +186,7 @@ const Shop = () => {
       name: "Performance Polo Shirt",
       price: 54.99,
       originalPrice: 69.99,
-      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&auto=format",
+      image: poloShirt,
       rating: 4.7,
       category: "Tops",
       isNew: false,
@@ -181,7 +197,7 @@ const Shop = () => {
       name: "Elite Running Shoes",
       price: 129.99,
       originalPrice: 159.99,
-      image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format",
+      image: runningShoes,
       rating: 4.9,
       category: "Footwear",
       isNew: true,
