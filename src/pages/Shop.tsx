@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +7,7 @@ import Footer from "@/components/Footer";
 import { ShoppingBag, Star } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import tankTop from "@/assets/products/tank-top.jpg";
 import runningShorts from "@/assets/products/running-shorts.jpg";
 import leggings from "@/assets/products/leggings.jpg";
@@ -26,6 +28,8 @@ import runningShoes from "@/assets/products/running-shoes.jpg";
 const Shop = () => {
   const { addItem } = useCart();
   const { toast } = useToast();
+  const [genderFilter, setGenderFilter] = useState<"all" | "men" | "women" | "unisex">("all");
+  
   const products = [
     {
       id: 1,
@@ -35,6 +39,7 @@ const Shop = () => {
       image: tankTop,
       rating: 4.8,
       category: "Tops",
+      gender: "unisex",
       isNew: false,
       onSale: true
     },
@@ -46,6 +51,7 @@ const Shop = () => {
       image: runningShorts,
       rating: 4.9,
       category: "Bottoms",
+      gender: "men",
       isNew: true,
       onSale: false
     },
@@ -57,6 +63,7 @@ const Shop = () => {
       image: leggings,
       rating: 4.7,
       category: "Bottoms",
+      gender: "women",
       isNew: false,
       onSale: true
     },
@@ -68,6 +75,7 @@ const Shop = () => {
       image: sportsBra,
       rating: 4.6,
       category: "Tops",
+      gender: "women",
       isNew: false,
       onSale: false
     },
@@ -79,6 +87,7 @@ const Shop = () => {
       image: trainingGloves,
       rating: 4.5,
       category: "Accessories",
+      gender: "unisex",
       isNew: false,
       onSale: true
     },
@@ -90,6 +99,7 @@ const Shop = () => {
       image: runningJacket,
       rating: 4.8,
       category: "Outerwear",
+      gender: "men",
       isNew: true,
       onSale: false
     },
@@ -101,6 +111,7 @@ const Shop = () => {
       image: hoodie,
       rating: 4.9,
       category: "Outerwear",
+      gender: "unisex",
       isNew: false,
       onSale: true
     },
@@ -112,6 +123,7 @@ const Shop = () => {
       image: performanceTee,
       rating: 4.7,
       category: "Tops",
+      gender: "men",
       isNew: false,
       onSale: false
     },
@@ -123,6 +135,7 @@ const Shop = () => {
       image: yogaPants,
       rating: 4.8,
       category: "Bottoms",
+      gender: "women",
       isNew: false,
       onSale: true
     },
@@ -134,6 +147,7 @@ const Shop = () => {
       image: hydrationBelt,
       rating: 4.4,
       category: "Accessories",
+      gender: "unisex",
       isNew: true,
       onSale: false
     },
@@ -145,6 +159,7 @@ const Shop = () => {
       image: compressionSleeves,
       rating: 4.6,
       category: "Accessories",
+      gender: "unisex",
       isNew: false,
       onSale: true
     },
@@ -156,6 +171,7 @@ const Shop = () => {
       image: windbreaker,
       rating: 4.7,
       category: "Outerwear",
+      gender: "women",
       isNew: true,
       onSale: false
     },
@@ -167,6 +183,7 @@ const Shop = () => {
       image: socksPack,
       rating: 4.5,
       category: "Accessories",
+      gender: "unisex",
       isNew: false,
       onSale: true
     },
@@ -178,6 +195,7 @@ const Shop = () => {
       image: trainingShorts,
       rating: 4.8,
       category: "Bottoms",
+      gender: "men",
       isNew: false,
       onSale: false
     },
@@ -189,6 +207,7 @@ const Shop = () => {
       image: poloShirt,
       rating: 4.7,
       category: "Tops",
+      gender: "men",
       isNew: false,
       onSale: true
     },
@@ -200,10 +219,15 @@ const Shop = () => {
       image: runningShoes,
       rating: 4.9,
       category: "Footwear",
+      gender: "women",
       isNew: true,
       onSale: true
     }
   ];
+
+  const filteredProducts = genderFilter === "all" 
+    ? products 
+    : products.filter(product => product.gender === genderFilter);
 
   const handleAddToCart = (product: typeof products[0]) => {
     addItem({
@@ -239,8 +263,22 @@ const Shop = () => {
 
       {/* Products Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {products.map((product) => (
+        {/* Filter Tabs */}
+        <div className="mb-12 flex justify-center">
+          <Tabs value={genderFilter} onValueChange={(value) => setGenderFilter(value as typeof genderFilter)} className="w-full max-w-md">
+            <TabsList className="grid w-full grid-cols-4 h-12">
+              <TabsTrigger value="all" className="font-semibold">All</TabsTrigger>
+              <TabsTrigger value="men" className="font-semibold">Men</TabsTrigger>
+              <TabsTrigger value="women" className="font-semibold">Women</TabsTrigger>
+              <TabsTrigger value="unisex" className="font-semibold">Unisex</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        {/* Products Display */}
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {filteredProducts.map((product) => (
             <Card key={product.id} className="group cursor-pointer border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative overflow-hidden">
                 <img 
@@ -300,8 +338,13 @@ const Shop = () => {
                 </Button>
               </CardContent>
             </Card>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <p className="text-xl text-muted-foreground">No products found for this category.</p>
+          </div>
+        )}
       </section>
 
       <Footer />
