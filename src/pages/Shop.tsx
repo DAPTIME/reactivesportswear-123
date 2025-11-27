@@ -223,60 +223,65 @@ const Shop = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground mb-4">
-              Reactive
+          <div className="text-center space-y-6">
+            <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground tracking-tight">
+              Shop the
               <span className="bg-gradient-primary bg-clip-text text-transparent"> Collection</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Discover our complete range of performance sportswear designed for movement and comfort.
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Premium performance sportswear engineered for movement, designed for life
             </p>
           </div>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {products.map((product) => (
-            <Card key={product.id} className="card-athletic hover-lift group cursor-pointer">
-              <div className="relative overflow-hidden rounded-t-lg">
+            <Card key={product.id} className="group cursor-pointer border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative overflow-hidden">
                 <img 
                   src={product.image} 
                   alt={product.name}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute top-3 left-3 flex gap-2">
-                  {product.isNew && (
-                    <Badge className="bg-secondary text-secondary-foreground">New</Badge>
-                  )}
-                  {product.onSale && (
-                    <Badge className="bg-destructive text-destructive-foreground">Sale</Badge>
-                  )}
-                </div>
-                <div className="absolute top-3 right-3">
-                  <div className="flex items-center gap-1 bg-background/90 backdrop-blur-sm rounded-full px-2 py-1">
-                    <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                    <span className="text-xs font-medium">{product.rating}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {(product.isNew || product.onSale) && (
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    {product.isNew && (
+                      <Badge className="bg-secondary text-secondary-foreground font-semibold shadow-lg">New</Badge>
+                    )}
+                    {product.onSale && (
+                      <Badge className="bg-destructive text-destructive-foreground font-semibold shadow-lg">Sale</Badge>
+                    )}
+                  </div>
+                )}
+                
+                <div className="absolute top-4 right-4">
+                  <div className="flex items-center gap-1.5 bg-background/95 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-lg">
+                    <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-semibold text-foreground">{product.rating}</span>
                   </div>
                 </div>
               </div>
               
-              <CardContent className="p-4">
-                <div className="mb-2">
-                  <Badge variant="outline" className="text-xs">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <Badge variant="outline" className="text-xs font-medium border-primary/20 text-muted-foreground">
                     {product.category}
                   </Badge>
                 </div>
                 
-                <h3 className="font-display font-semibold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors leading-tight">
                   {product.name}
                 </h3>
                 
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="font-bold text-xl text-foreground">
+                <div className="flex items-baseline gap-3">
+                  <span className="font-bold text-2xl text-foreground">
                     ${product.price}
                   </span>
                   {product.originalPrice && (
@@ -287,7 +292,7 @@ const Shop = () => {
                 </div>
                 
                 <Button 
-                  className="w-full btn-athletic group-hover:shadow-lg transition-all duration-300"
+                  className="w-full btn-athletic font-semibold"
                   onClick={() => handleAddToCart(product)}
                 >
                   <ShoppingBag className="h-4 w-4 mr-2" />
