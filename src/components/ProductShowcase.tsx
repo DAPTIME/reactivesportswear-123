@@ -63,6 +63,10 @@ const ProductShowcase = () => {
             <img 
               src={productsImage} 
               alt="Reactive Sportswear Collection" 
+              width={584}
+              height={384}
+              loading="lazy"
+              decoding="async"
               className="w-full h-96 object-cover rounded-2xl shadow-2xl hover-glow transition-all duration-300"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl"></div>
