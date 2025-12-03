@@ -15,7 +15,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="Reactive Sportswear" className="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+              <img src={logo} alt="Reactive Sportswear" width={102} height={56} className="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity" />
             </Link>
           </div>
 
