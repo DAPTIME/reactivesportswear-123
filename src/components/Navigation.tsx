@@ -37,11 +37,11 @@ const Navigation = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="p-2">
+            <Button variant="ghost" size="sm" className="p-2" aria-label="User account">
               <User className="h-5 w-5" />
             </Button>
-            <Link to="/cart" className="relative">
-              <Button variant="ghost" size="sm" className="p-2 relative">
+            <Link to="/cart" className="relative" aria-label="Shopping cart">
+              <Button variant="ghost" size="sm" className="p-2 relative" aria-label="View cart">
                 <ShoppingBag className="h-5 w-5" />
                 {state.items.length > 0 && (
                   <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-primary text-primary-foreground text-xs">
@@ -55,7 +55,7 @@ const Navigation = () => {
                 Shop Now
               </Button>
             </Link>
-            <Button variant="ghost" size="sm" className="p-2 md:hidden">
+            <Button variant="ghost" size="sm" className="p-2 md:hidden" aria-label="Open menu">
               <Menu className="h-5 w-5" />
             </Button>
           </div>
