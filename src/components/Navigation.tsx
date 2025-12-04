@@ -50,7 +50,7 @@ const Navigation = () => {
                 )}
               </Button>
             </Link>
-            <Link to="/shop">
+            <Link to="/shop" aria-label="Shop Now">
               <Button className="btn-athletic hidden sm:inline-flex">
                 Shop Now
               </Button>
