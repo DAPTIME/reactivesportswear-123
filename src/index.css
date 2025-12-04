@@ -17,10 +17,10 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 27%;
 
-    /* Athletic Blue Primary */
-    --primary: 210 100% 56%;
+    /* Athletic Blue Primary - Darkened for WCAG AA contrast (4.5:1 with white) */
+    --primary: 210 100% 40%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 210 100% 70%;
+    --primary-glow: 210 100% 56%;
 
     /* Energetic Orange Secondary */
     --secondary: 25 95% 60%;
@@ -39,17 +39,17 @@ All colors MUST be HSL.
 
     --border: 210 40% 94%;
     --input: 210 40% 94%;
-    --ring: 210 100% 56%;
+    --ring: 210 100% 40%;
 
     /* Athletic Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 56%), hsl(210, 100%, 70%));
+    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 40%), hsl(210, 100%, 56%));
     --gradient-secondary: linear-gradient(135deg, hsl(25, 95%, 60%), hsl(45, 95%, 65%));
     --gradient-accent: linear-gradient(135deg, hsl(142, 70%, 50%), hsl(160, 70%, 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(210, 100%, 56%) 0%, hsl(25, 95%, 60%) 50%, hsl(142, 70%, 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210, 100%, 40%) 0%, hsl(25, 95%, 60%) 50%, hsl(142, 70%, 50%) 100%);
     
     /* Movement Shadows */
-    --shadow-athletic: 0 10px 30px -10px hsl(210, 100%, 56%, 0.3);
-    --shadow-glow: 0 0 40px hsl(210, 100%, 70%, 0.4);
+    --shadow-athletic: 0 10px 30px -10px hsl(210, 100%, 40%, 0.3);
+    --shadow-glow: 0 0 40px hsl(210, 100%, 56%, 0.4);
     --shadow-lift: 0 20px 40px -15px hsl(215, 25%, 27%, 0.2);
 
     /* Performance Transitions */
